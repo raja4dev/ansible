@@ -25,18 +25,30 @@ ansible --version
 vi authorized_keys
 
 ```
-
+```
 vi /etc/ansible/hosts
 
 [web]
 target-ip
 
 :wq
+```
 
-````
-# Ping Module to test the connection 
+
+##### Ping Module to test the connection 
 ```
 ansible all -m ping
+```
+#### Output 
+
+```
+10.10.0.3 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
 ```
 
 
