@@ -20,7 +20,7 @@ ansible --version
 
 ```
 # Server/Worker node side changes
-# Copy the id-rsa.pub (from Ansible master) to authorized_keys (worker nodes)
+##### Copy the id-rsa.pub (from Ansible master) to authorized_keys (worker nodes)
 ```
 vi authorized_keys
 
