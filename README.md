@@ -26,5 +26,18 @@ vi authorized_keys
 
 ```
 
+vi /etc/ansible/hosts
+
+[web]
+target-ip
+
+:wq
+
+````
+# Ping Module to test the connection 
+```
+ansible all -m ping
+```
+
 
 
