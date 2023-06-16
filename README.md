@@ -49,8 +49,9 @@ vi /etc/ssh/sshd_config
 PasswordAuthentication Yes
 PermitRootLogin yes
 ```
+
+###### After changing the file we need to save the file and restart systemctl using below command
 ```
-restart systemctl using below command
 systemctl restart sshd
 ```
 
