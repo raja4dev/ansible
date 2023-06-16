@@ -43,11 +43,11 @@ target-ip
 ```
 ##### If you are still getting access issue follow the below steps to fix
 ```
-###Change root password: passwd root
+###Change/add the below entries 
 vi /etc/ssh/sshd_config 
-Change 
-**PasswordAuthentication Yes
-PermitRootLogin yes**
+ 
+PasswordAuthentication Yes
+PermitRootLogin yes
 ```
 ```
 restart systemctl using below command
