@@ -19,6 +19,13 @@ which ansible
 ansible --version
 
 ```
+###Change root password: passwd root
+```/etc/ssh/sshd_config 
+Change PasswordAuthentication Yes, PermitRootLogin yes
+systemctl restart sshd, service sshd restart 
+```
+![image](https://github.com/raja4dev/ansible/assets/41365862/b0305056-b732-4fc0-93cf-b39897f59c0d)
+
 # Server/Worker node side changes
 ##### Copy the id-rsa.pub (from Ansible master) to authorized_keys (worker nodes)
 ```
