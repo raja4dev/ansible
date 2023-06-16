@@ -55,6 +55,20 @@ PermitRootLogin yes
 systemctl restart sshd
 ```
 
+###### Add the node IP/host entry /etc/ansible/hosts
+```
+vi /etc/ansible/hosts
+
+[web]
+<node1-ip>
+
+[app]
+<node2-ip>
+
+......
+etc
+```
+
 ##### Ping Module to test the connection 
 ```
 ansible all -m ping
