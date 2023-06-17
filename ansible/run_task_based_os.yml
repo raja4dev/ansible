@@ -1,12 +1,16 @@
-- hosts: localhost
-  gather_facts: true
+---
+- name: Install zip package on CentOS and Ubuntu
+  hosts: all
   tasks:
-  - name: run apt-get
-    command: apt-get install tree -y
-    when: ansible_distribution == "Ubuntu"
-  - name: run yum update 
-    command: yum update
-    when: ansible_distribution == "CentOS"
-  - name: run yum
-    command: yum install tree -y
-    when: ansible_distribution == "CentOS"
+    - name: Install zip package on CentOS
+      yum:
+        name: tree
+        state: present
+      when: "'CentOS' in ansible_distribution"
+
+    - name: Install zip package on Ubuntu
+      apt:
+        name: tree
+        state: present
+      when: "'Ubuntu' in ansible_distribution"
+

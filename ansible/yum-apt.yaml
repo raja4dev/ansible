@@ -1,0 +1,44 @@
+---
+- name: Install Git, Remove Zip, and List OpenSSL
+  hosts: alll
+  become: true
+
+  tasks:
+    - name: Install Git package
+      package:
+        name: git
+        state: present
+      when: ansible_distribution in ['CentOS', 'RedHat']
+
+    - name: Install Git package
+      package:
+        name: git
+        state: present
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Remove Zip package
+      package:
+        name: zip
+        state: absent
+      when: ansible_distribution in ['CentOS', 'RedHat']
+
+    - name: Remove Zip package
+      package:
+        name: unzip
+        state: absent
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: List OpenSSL package
+      command: yum list installed openssl
+      register: openssl_output
+      when: ansible_distribution in ['CentOS', 'RedHat']
+
+    - name: List OpenSSL package
+      command: dpkg -l openssl
+      register: openssl_output
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Display OpenSSL package info
+      debug:
+        var: openssl_output.stdout_lines
+

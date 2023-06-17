@@ -1,0 +1,17 @@
+---
+- name: Variable Naming Example
+  hosts: web
+  gather_facts: false
+
+  vars:
+    my_variable: "welcome to DevOps"
+    another_variable: 42
+    _underscore_variable: "valid"
+    123numeric_variable: "invalid"   # Invalid variable name (starts with a number)
+
+  tasks:
+    - name: Task using variables
+      debug:
+        var: my_variable
+      # Additional tasks using other variables...
+

@@ -1,0 +1,14 @@
+---
+- name: Included Variables Example
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Include variables
+      include_vars:
+        file: vars.yml
+
+    - name: Task using variables
+      debug:
+        var: variable_name
+

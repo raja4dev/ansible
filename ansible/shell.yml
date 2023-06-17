@@ -1,9 +1,11 @@
 ---
-- hosts: dev
-  become: yes
+- name: Execute Shell Script in a Different Directory
+  hosts: web
   gather_facts: false
+
   tasks:
-    - name: Change the working directory to somedir/ before executing the command.
-      shell: somescript.sh >> somelog.txt
-      args:
-        chdir: somedir/
+    - name: Change working directory
+      shell:
+        cmd: /opt/sample.sh
+        chdir: /opt/
+

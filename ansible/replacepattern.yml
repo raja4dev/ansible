@@ -1,0 +1,12 @@
+---
+- name: Replace Pattern in File
+  hosts: web
+  gather_facts: false
+
+  tasks:
+    - name: Replace pattern in file
+      replace:
+        path: /opt/file.txt
+        regexp: 'DevOps'
+        replace: 'Cloud'
+

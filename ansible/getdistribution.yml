@@ -1,0 +1,7 @@
+---
+- name: Get ansible_distribution value
+  hosts: all
+  tasks:
+    - name: Display ansible_distribution
+      debug:
+        var: ansible_distribution

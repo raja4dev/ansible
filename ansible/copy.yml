@@ -1,9 +1,9 @@
 ---
-- hosts: dev
+- hosts: web
   become: yes
   gather_facts: false
   tasks:
-    - name: Install application tree
+    - name: Copy the files
       copy:
-        src: src_path
-        dest: dest_path
+        src: /tmp/file.txt
+        dest: /opt/

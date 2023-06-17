@@ -1,10 +1,11 @@
 ---
-- hosts: dev
-  become: yes
+- name: Download Jenkins WAR file
+  hosts: web
   gather_facts: false
+
   tasks:
-    - name: Download jenkins.war 
+    - name: Download Jenkins WAR file
       get_url:
-        url: https://updates.jenkins-ci.org/download/war/2.241/jenkins.war
-        dest: /tmp
-        mode: '0777'
+        url: https://updates.jenkins.io/latest/jenkins.war
+        dest: /opt/jenkins.war
+

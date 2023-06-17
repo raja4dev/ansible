@@ -1,0 +1,4 @@
+# vars.yml
+variable_name: variable_value
+another_variable: 42
+

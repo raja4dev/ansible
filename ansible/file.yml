@@ -1,0 +1,12 @@
+---
+- name: Create File
+  hosts: web
+  gather_facts: false
+
+  tasks:
+    - name: Create file
+      file:
+        path: /opt/file.txt
+        state: touch
+        mode: 0644
+

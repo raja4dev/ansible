@@ -1,9 +1,22 @@
 ---
-- hosts: dev
-  become: yes
-  gather_facts: false
+- name: Fetch Files from Remote Hosts
+  hosts: web
+  become: true
+
   tasks:
-    - name: Install application tree
+    - name: Fetch Single File
       fetch:
-        src: src_path
-        dest: dest_path
+        src: /tmp/remote/file.txt
+        dest: /tmp/local/file.txt
+        flat: yes
+
+    - name: Fetch Multiple Files
+      fetch:
+        src: "/tmp/remote/{{ item }}"
+        dest: "/tmp/local/{{ item }}"
+        flat: yes
+      with_items:
+        - file1.txt
+        - file2.txt
+        - file3.txt
+

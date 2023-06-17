@@ -1,0 +1,13 @@
+---
+- name: Create and Modify File
+  hosts: web
+  gather_facts: false
+
+  tasks:
+    - name: Create or Modify file
+      blockinfile:
+        path: /opt/file.txt
+        block: |
+          This is some content to add to the file.
+          we can add multiple lines here.
+        marker: "# ANSIBLE MANAGED BLOCK"
