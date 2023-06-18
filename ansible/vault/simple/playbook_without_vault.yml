@@ -1,0 +1,9 @@
+---
+- name: Playbook without Vault
+  hosts: all
+  vars:
+    mypassword: mysupersecretpassword
+  tasks:
+    - name: print variable
+      ansible.builtin.debug:
+        var: mypassword

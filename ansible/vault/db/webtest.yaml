@@ -1,0 +1,9 @@
+- hosts: web
+  vars_files:
+    - database_credentials.yml
+
+  tasks:
+    - name: Configure database
+      mysql_db:
+        name: "{{ database_name }}"
+        state: present
