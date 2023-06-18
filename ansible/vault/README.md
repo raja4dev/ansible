@@ -1,38 +1,62 @@
+
+##### playbook_without_vault.yml
+
+```
+---
+- name: Playbook without Vault
+  hosts: all
+  vars:
+    mypassword: mysupersecretpassword
+  tasks:
+    - name: print variable
+      ansible.builtin.debug:
+        var: mypassword
+        
+```
+
+```
+ansible-playbook playbook_without_vault.yml
+```
+
 #### Create an encrypted file to store the database credentials:
 
 ```
-ansible-vault create database_credentials.yml
-
+ansible-vault create mypassword.yml
 ```
 Enter and confirm a password for the vault.
 
 The encrypted file will open in the default text editor. Add the following content in YAML format:
 ```
-database_host: localhost
-database_port: 3306
-database_name: mydb
-database_user: myuser
-database_password: mysecretpassword
+mypassword: mysupersecretpassword
+
 ```
 Save and close the file.
 
-#### encrypted file using the vars_files directive:
+#### encrypted file using the vars_files directive: playbook_with_vault.yml 
 ```
-- hosts: web
-  vars_files:
-    - path/to/database_credentials.yml
-
+---
+- name: Playbook with Vault
+  hosts: all
   tasks:
-    - name: Configure database
-      mysql_db:
-        name: "{{ database_name }}"
-        state: present
-```
+    - name: include vault
+      ansible.builtin.include_vars:
+        file: mypassword.yml
+
+    - name: print variable
+      ansible.builtin.debug:
+        var: mypassword
+      #no_log: true  
 
 When running the playbook, provide the vault password using the --ask-vault-pass option:
 
 ```
-ansible-playbook myplaybook.yml --ask-vault-pass
+ansible-playbook --ask-vault-password playbook_with_vault.yml
+```
+
+Ansible will automatically decrypt the file and make the variables available to your playbook.
 
 ```
-Ansible will automatically decrypt the file and make the variables available to your playbook.
+ansible-vault decrypt encrypted_file.yml
+
+```
+
