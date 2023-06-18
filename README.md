@@ -135,4 +135,20 @@ Remember to adjust the role name (myrole in this example) to match the name of y
 
 ```
 
+###### download Sonarqube role
+
+```
+ansible-galaxy install lean_delivery.sonarqube
+cd /root/.ansible/roles/<role-name>
+cd /defaults
+cat main.yml
+````
+##### search  role
+```
+ansible-galaxy search sonarqube --author <author-name>
+```
+##### search package 
+```
+ansible-galaxy search docker
+```
 
