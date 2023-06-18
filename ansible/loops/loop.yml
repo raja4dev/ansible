@@ -1,0 +1,14 @@
+---
+- name: Loop Example
+  hosts: web
+  gather_facts: false
+
+  tasks:
+    - name: Task with loop
+      debug:
+        msg: "Item: {{ item }}"
+      loop:
+        - item1
+        - item2
+        - item3
+

@@ -1,0 +1,17 @@
+---
+- name: Loop Example
+  hosts: web
+  gather_facts: false
+
+  vars:
+    items_list:
+      - item1
+      - item2
+      - item3
+
+  tasks:
+    - name: Task with_items using variable
+      debug:
+        msg: "Item: {{ item }}"
+      with_items: "{{ items_list }}"
+

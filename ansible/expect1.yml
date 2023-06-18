@@ -1,0 +1,17 @@
+---
+- name: Expect Example
+  hosts: web
+  gather_facts: false
+
+  tasks:
+    - name: Run interactive command
+      expect:
+        command: ls -ltr /opt
+        responses:
+          "Enter username:": "root"
+      register: result
+
+    - name: Print command output
+      debug:
+        var: result.stdout_lines
+
