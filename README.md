@@ -91,12 +91,7 @@ ansible all -m ping
 
 
 
-### To create an Ansible role directory structure using Ansible Galaxy, you can use the ansible-galaxy command-line tool. Here's how you can do it:
-
-##### Install Ansible Galaxy (if not already installed):
-```
-pip install ansible-galaxy
-```
+#### To create an Ansible role directory structure using Ansible Galaxy, you can use the ansible-galaxy command-line tool. Here's how you can do it:
 
 #### Create a new role with the desired name:
 ```
