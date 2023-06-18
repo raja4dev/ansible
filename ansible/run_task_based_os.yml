@@ -4,13 +4,13 @@
   tasks:
     - name: Install zip package on CentOS
       yum:
-        name: tree
+        name: git
         state: present
       when: "'CentOS' in ansible_distribution"
 
     - name: Install zip package on Ubuntu
       apt:
-        name: tree
+        name: git
         state: present
       when: "'Ubuntu' in ansible_distribution"
 

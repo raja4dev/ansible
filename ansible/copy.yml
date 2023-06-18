@@ -7,3 +7,4 @@
       copy:
         src: /tmp/file.txt
         dest: /opt/
+        mode: "0777"

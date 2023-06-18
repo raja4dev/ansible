@@ -1,0 +1,14 @@
+- name: Uninstall Apache2
+  hosts: web
+  become: true
+  tasks:
+    - name: Stop Apache2 service
+      service:
+        name: apache2
+        state: stopped
+
+    - name: Uninstall Apache2 package
+      apt:
+        name: apache2
+        state: absent
+

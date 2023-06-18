@@ -1,0 +1,25 @@
+---
+- name: Uninstall Nginx
+  hosts: web
+  become: true
+  tasks:
+    - name: Stop Nginx service
+      service:
+        name: nginx
+        state: stopped
+
+    - name: Uninstall Nginx package
+      package:
+        name: nginx
+        state: absent
+
+    - name: Delete Nginx configuration directory
+      file:
+        path: /etc/nginx
+        state: absent
+
+    - name: Delete Nginx log directory
+      file:
+        path: /var/log/nginx
+        state: absent
+

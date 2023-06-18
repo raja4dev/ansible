@@ -6,7 +6,7 @@
   tasks:
     - name: Run interactive command
       expect:
-        command: ls -ltr /opt
+        command: ls -ltr /
         responses:
           "Enter username:": "root"
       register: result

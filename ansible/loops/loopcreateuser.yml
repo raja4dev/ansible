@@ -1,0 +1,23 @@
+---
+- name: Create Users
+  hosts: web
+  become: true
+  gather_facts: false
+
+  vars:
+    users:
+      - name: user1
+        password: password1
+      - name: user2
+        password: password2
+      - name: user3
+        password: password3
+
+  tasks:
+    - name: Create users
+      user:
+        name: "{{ item.name }}"
+        password: "{{ item.password }}"
+        state: present
+      loop: "{{ users }}"
+
