@@ -1,5 +1,4 @@
-
-##### playbook_without_vault.yml
+#### playbook_without_vault.yml
 
 ```
 ---
@@ -53,7 +52,7 @@ When running the playbook, provide the vault password using the --ask-vault-pass
 ansible-playbook --ask-vault-password playbook_with_vault.yml
 ```
 
-Ansible will automatically decrypt the file and make the variables available to your playbook.
+#### Ansible will automatically decrypt the file and make the variables available to your playbook.
 
 ```
 ansible-vault decrypt encrypted_file.yml
