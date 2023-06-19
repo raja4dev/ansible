@@ -1,4 +1,4 @@
-# ansible
+# ansible setup on Ubuntu
 
 ## On  master
 ##### Login as `root` user
